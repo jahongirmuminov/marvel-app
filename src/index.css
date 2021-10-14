@@ -1,13 +1,174 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* generic */
+  --gutterSm: 0.4rem;
+  --gutterMd: 0.8rem;
+  --gutterLg: 1.6rem;
+  --colorPrimary600: #fff;
+  --fontFamily: "Dosis", sans-serif;
+ 
+  /* --fontSizeMd: 1.6rem; */
+  --fontSizeLg: 2.1rem;
+  --lineHeightMd: 1.1;
+  --transitionDuration: 300ms;
+ 
+  /* floated labels */
+  --inputPaddingV: var(--gutterMd);
+  --inputPaddingH: var(--gutterLg);
+  --inputFontSize: var(--fontSizeLg);
+  --inputLineHeight: var(--lineHeightMd);
+
+}
+ 
+
+.home{
+  background: #142041;
+   min-height: 100vh;
+}
+ 
+.logo {
+  color: #8A0902;
+  font-size: 72px;
+  font-weight: bold;
+ 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ 
+
+.singleItem {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+}
+.cardItems:hover {
+  
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  
+}
+
+.cardItems:hover img {
+  opacity: 0.4;
+}
+
+.singleItem img {
+   width: 300px;
+   height: 300px;
+   margin-right: 15px;
+}
+
+.btnItem {
+  border: none;
+  background: #fff;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+
+.room-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  transition: all 0.3s linear;
+}
+.btn-primary {
+  background: #8A0902;
+  padding: 10px 50px;
+  list-style: none;
+  font-size: 24px;
+  font-size: bolder;
+   text-decoration: none;
+}
+.btn-primary:hover{
+  background:#8A0902;
+}
+
+.cardItems:hover .room-link {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+.input-Text {
+  display: block;
+  margin: 15px 0;
+  padding: var(--inputPaddingV) var(--inputPaddingH);
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: var(--inputFontSize);
+  font-weight: inherit;
+  line-height: var(--inputLineHeight);
+  border: none;
+  border-radius: 0.4rem;
+  transition: box-shadow var(--transitionDuration);
+}
+
+
+.input-Text::placeholder {
+  color: #b0bec5;
+}
+
+.input-Text:focus {
+  outline: none;
+  box-shadow: 0.1rem 0.4rem 1.2rem var(--colorPrimary600);
+}
+
+
+
+.cardMain {
+  cursor: pointer;
+  background-color: transparent;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+
+.cardMain:hover .cardInner {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.back {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transform: rotateY(180deg);
+}
+
+@media (max-width:540px) {
+   .singleItem {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+   .btnItem {
+     width: 100%;
+   }
+   .input-Text {
+     width: fit-content !important;
+   }
 }

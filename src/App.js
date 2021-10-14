@@ -1,25 +1,89 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {  api, getNotAuthInstance } from "./api";
+import Home from "./components/Home";
+import Product from "./components/Product";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+	return (
+		
+		<Router>
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/product/:id"  component={Product} />
+			</Switch>
+		</Router>
+	);
+};
 
 export default App;
+
+// <div className="App">
+// 	<h1>{count}</h1>
+// 	<button
+// 		onClick={() => {
+// 			dispatch({
+// 				type: DECREMENT,
+// 			});
+// 		}}
+// 	>
+// 		DECREMENT
+// 	</button>
+// 	<button
+// 		onClick={() => {
+// 			dispatch({
+// 				type: INCREMENT,
+// 			});
+// 		}}
+// 	>
+// 		INCREMENT
+// 	</button>
+//   <button
+// 		onClick={() => {
+// 			dispatch({
+// 				type: INCREMENT,
+// 			});
+// 		}}
+// 	>
+// 		INCREMENT
+// 	</button>
+//   <button
+// 		onClick={() => {
+// 			dispatch({
+// 				type: INCREMENT,
+// 			});
+// 		}}
+// 	>
+// 		INCREMENT
+// 	</button>
+// 	<button
+// 		onClick={() => {
+// 			dispatch({
+// 				type: CLEAR,
+// 			});
+// 		}}
+// 	>
+// 		Clear
+// 	</button>
+// 	<br />
+// 	<input
+// 		value={add}
+// 		onChange={(_) => {
+// 			setAdd(_.target.value);
+// 		}}
+// 		type="number"
+// 	/>
+// 	<button
+// 		onClick={() => {
+// 			dispatch({
+// 				type: ADD,
+// 				payload: add,
+// 			});
+//       setAdd("")
+// 		}}
+// 	>
+// 		Add
+// 	</button>
+// </div>
