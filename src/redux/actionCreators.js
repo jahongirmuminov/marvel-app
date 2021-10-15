@@ -3,9 +3,9 @@ import { api } from "../api";
 import { apikey, hash,ts } from '../contstant/constant'
 
 export const getUsers = (props) => {
-	 console.log(props.text=="")
+	  
  
-		if(props.text==""){
+		if(props.text===""){
 			return (dispatch) => {
 				dispatch({
 					type: USER_START,
